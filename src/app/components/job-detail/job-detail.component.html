@@ -1,0 +1,13 @@
+<div class="card bg-light mb-3" style="max-width: 18rem;">
+  <div class="card-header">Employee Detail</div>
+  <div class="card-body">
+    <h5 class="card-title">{{ jcService.jobSelected.employeeName }} {{ jcService.jobSelected.employeeLastName }}</h5>    
+    <p class="emp-detail">
+      {{ jcService.jobSelected.documentType.docType }} ({{ jcService.jobSelected.document }})<br>
+      {{ jcService.jobSelected.subarea.area.areaName }} - {{ jcService.jobSelected.subarea.subAreaName }}</p>
+    <p class="dateCard">
+      Created date: {{ jcService.jobSelected.created | date: 'dd/MM/yyyy HH:mm' }}<br>
+      Updated date: {{ jcService.jobSelected.updated | date: 'dd/MM/yyyy HH:mm' }}
+    </p>
+  </div>
+</div>

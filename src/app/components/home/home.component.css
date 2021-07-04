@@ -1,0 +1,15 @@
+.optBtn{
+    cursor:pointer;
+    margin-left: 6px;
+}
+.floatingCreate{
+    position: fixed;
+    bottom: 33px;
+    right: 33px;
+    font-size: 45px;
+    cursor: pointer;
+    color: #1D8348;
+}
+.thead-light{
+    font-size: 12px !important;
+}
