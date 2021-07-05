@@ -7,6 +7,7 @@ export const environment = {
   baseEndpoint: 'http://localhost:1028/',
   listEmployees: 'api/Employees/ListEmployees',
   updateEmployee: 'api/Employees/UpdateEmployee',
+  createEmployee: 'api/Employees/CreateEmployee',
   listArea: 'api/Area/ListArea',
   listSubArea: 'api/SubArea/ListSubArea',
   auth: 'api/JwtAuth/Login',

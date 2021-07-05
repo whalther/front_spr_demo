@@ -58,19 +58,15 @@ export class JobCrudService {
     console.log('Selectted area: ',this.jobSelected.subarea.area.idArea);
     this.subAreasFilter = this.subAreas.filter(x => x.area.idArea == this.jobSelected.subarea.area.idArea);
   }  
+  
   listSubArea(){
     this.subAreaService.listSubArea().subscribe(d => { 
-      //this.subAreaEmpDefault = this.jobSelected.subarea.idSubArea;
       this.subAreas = d.data.SubAreas;   
       console.log('DATA',this.subAreas);  
-      /*this.subAreasFilter = this.subAreas.filter(x => x.area.idArea == this.jobSelected.subarea.area.idArea);
-      console.log('New sub areas:',this.subAreas); 
-      console.log('New sub areas filter:',this.subAreasFilter);           
-      //console.log('AREA SELECCIONADA', this.jobSelected.subarea.area.idArea);
-      console.log('sub areas', d);*/
     });     
   }
-  updateJob():any{
+
+  updateEmployee():any{
     const data = {
       "idEmployee": this.jobSelected.idEmployee,
       "employeeName": this.jobSelected.employeeName,
@@ -90,4 +86,11 @@ export class JobCrudService {
 
     return this.http.post(environment.baseEndpoint+environment.updateEmployee ,data ,config);
   } 
+
+  createEmployee(employee):any{
+    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json')
+                                               .set('Authorization','Bearer '+localStorage.getItem("myToken")) };    
+
+    return this.http.post(environment.baseEndpoint+environment.createEmployee ,employee ,config);
+  }   
 }

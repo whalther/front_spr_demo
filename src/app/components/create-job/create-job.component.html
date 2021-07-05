@@ -8,42 +8,50 @@
   <div class="form-group row">
     <label  class="col-sm-4 col-form-label col-form-label-sm">Name</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control form-control-sm" >
+      <input type="text" class="form-control form-control-sm" [(ngModel)]="name">
     </div>
   </div>
   <div class="form-group row">
     <label  class="col-sm-4 col-form-label col-form-label-sm">Last Name</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control form-control-sm" >
+      <input type="text" class="form-control form-control-sm" [(ngModel)]="lastName">
     </div>
   </div>
   <div class="form-group row">
     <label  class="col-sm-4 col-form-label col-form-label-sm">Document Type</label>
     <div class="col-sm-8">
-      <select class="form-control form-control-sm" ></select>
+      <select class="form-control form-control-sm" [(ngModel)]="documentType"> 
+        <option [value]="doc.idDoc" *ngFor="let doc of jcService.documentsEmp">{{doc.docType}}</option>
+      </select>  
     </div>
   </div>    
   <div class="form-group row">
     <label  class="col-sm-4 col-form-label col-form-label-sm">Document Number</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control form-control-sm" >
+      <input type="text" class="form-control form-control-sm" [(ngModel)]="documentNumber">
     </div>
   </div>  
   <div class="form-group row">
     <label  class="col-sm-4 col-form-label col-form-label-sm">Area</label>
     <div class="col-sm-8">
-      <select class="form-control form-control-sm" ></select>
+      <select class="form-control form-control-sm" [(ngModel)]="areaSelected" (change)="updateSubArea()">
+        <option [value]="area.idArea" *ngFor="let area of areas">{{area.areaName}}</option>
+      </select>      
     </div>
-  </div>   
+  </div> 
   <div class="form-group row">
     <label  class="col-sm-4 col-form-label col-form-label-sm">Sub Area</label>
     <div class="col-sm-8">
-      <select class="form-control form-control-sm" ></select>
+      <select class="form-control form-control-sm" [(ngModel)]="subAreaSelected">
+        <option [value]="subArea.idSubArea" *ngFor="let subArea of subAreasFilter">{{subArea.subAreaName}}</option>
+      </select>
     </div>
-  </div>     
+  </div>   
+   
   <div class="form-group row">
     <div class="col-sm-10">
       <button type="button" (click)="createJob()" class="btn btn-primary">Create</button>
-      &nbsp;&nbsp;&nbsp;<span *ngIf="created">Created!</span>
+      &nbsp;&nbsp;&nbsp;<span *ngIf="created">Created!</span>&nbsp;&nbsp;
+      <svg *ngIf="created" (click)="updateAfterCreate()" style="cursor: pointer" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M2.5 2v6h6M21.5 22v-6h-6"/><path d="M22 11.5A10 10 0 0 0 3.2 7.2M2 12.5a10 10 0 0 0 18.8 4.2"/></svg>
     </div>
   </div>    

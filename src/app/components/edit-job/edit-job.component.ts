@@ -26,7 +26,7 @@ export class EditJobComponent implements OnInit {
   }
 
   editJob(){
-    this.jcService.updateJob().subscribe(q => {
+    this.jcService.updateEmployee().subscribe(q => {
       console.log(q);
       this.edited = true;
     });  
@@ -52,12 +52,5 @@ export class EditJobComponent implements OnInit {
   updateAfterEdit(){
     window.location.reload();
   }
-  /*subAreaChange(){
-    console.log('Sub Area: '+this.subAreaEmpDefault);
-    this.jcService.jobSelected.subarea.idSubArea = parseInt(this.subAreaEmpDefault);
-  }
-  documentTypeChange(){
-    //this.jcService.jobSelected.documentType.idDoc = parseInt(this.documentEmpDefault);
-    console.log(this.jcService.jobSelected.documentType.idDoc);
-  }*/
+ 
 }
