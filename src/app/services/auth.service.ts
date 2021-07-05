@@ -10,7 +10,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
   genToken():any{
     const data = {
-      "username": "freecode"
+      "username": "walter.zetino"
     }
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     console.log('myToken1: ',localStorage.getItem("myToken"));

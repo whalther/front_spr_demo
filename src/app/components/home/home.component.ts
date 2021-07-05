@@ -22,7 +22,9 @@ export class HomeComponent implements OnInit {
   showEditComponent = false;
   showCreateComponent = false;
   showDetailComponent = false;
-  constructor(private jcService : JobCrudService, private router: Router) { }
+  constructor(private jcService : JobCrudService, private router: Router) { 
+    this.listEmployees();
+  }
 
   ngOnInit() { 
     this.dtOptions = {
@@ -30,11 +32,11 @@ export class HomeComponent implements OnInit {
       pageLength: 5,
       processing: true,
       /*language: { url: '../../assets/idioma_datatables.txt' },*/
-    };       
-    this.listEmployees();
+    };    
+    this.rerender();   
   }
   ngAfterViewInit(): void {
-    this.dtTrigger.next();
+    this.dtTrigger.next();    
   }
 
   ngOnDestroy(): void {
@@ -53,7 +55,7 @@ export class HomeComponent implements OnInit {
 
   listEmployees(){
     this.jcService.listEmployees().subscribe(q => {
-      this.employees = q.data.Empleados;      
+      this.employees = q.data.Empleados;           
       if(q.data.Empleados.length > 0){
         this.goToJobDetail(0);
       }
